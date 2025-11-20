@@ -16,9 +16,25 @@ return {
       -- It's also a good idea to set this for the file picker (e.g., <leader>ff)
       picker = {
         hidden = true,
+        layouts = {
+          sidebar = {
+            layout = {
+              layout = {
+                position = "right",
+              },
+            },
+          },
+        },
         sources = {
           files = {
             hidden = true,
+          },
+          explorer = {
+            layout = {
+              layout = {
+                position = "right",
+              },
+            },
           },
         },
       },
