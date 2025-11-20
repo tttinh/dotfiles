@@ -1,0 +1,51 @@
+# --- General Operating System Files ---
+# Mac OS
+.DS_Store
+
+# Windows Thumbnail Cache
+Thumbs.db
+
+# --- Shell History and State ---
+# Shell History files (Do NOT back these up!)
+.bash_history
+.zsh_history
+.fish_history
+
+# Shell session files
+.zsh_sessions/
+.zsh_cache/
+.bash_sessions/
+
+# --- Git Specifics ---
+# Local Git credential helper cache
+.git-credential-cache/
+
+# --- Temporary/Session Files ---
+# Any files created by editors that shouldn't be tracked
+*.swp
+*.swo
+*.tmp
+*~
+
+# --- Vim/Neovim Files ---
+# Plug/Packer/Lazy cache and compiled files
+.local/share/nvim/
+.cache/nvim/
+.vim/plugged/
+.vim/bundle/
+
+# --- Application-Specific Caches/Logs ---
+# Zsh/Oh-My-Zsh cache
+.zcompdump*
+.z*compcache
+.p10k.zsh-cache
+
+# Local npm/node modules often generated in project folders
+node_modules/
+.npm/
+
+# Tmux temporary files (often in /tmp, but sometimes elsewhere)
+*tmux*
+
+# Any files end with .local
+*.local

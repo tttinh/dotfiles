@@ -1,0 +1,12 @@
+[init]
+	defaultBranch = main
+
+[user]
+  name = tttinh
+  email = tinhtrantrung.vn@gmail.com
+
+# --- LOCAL OVERRIDE ---
+# Use the 'includeIf' directive to look for a file ONLY in the home directory.
+# Since we will exclude this file from Git tracking, it only lives on your machine.
+[includeIf "gitdir:~/"]
+    path = .gitconfig.local
