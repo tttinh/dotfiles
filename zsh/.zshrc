@@ -4,7 +4,6 @@
 # Some convenient aliases
 alias n="nvim"
 alias lg="lazygit"
-alias nconfig="nvim ~/.config/nvim/"
 alias ndotfiles="nvim ~/.dotfiles/"
 
 # This line binds the Crlt+Space to accept the current autosuggestion.
@@ -117,7 +116,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="$PATH:/opt/nvim/"
 
 # Hide the username@host from the prompt.
 prompt_context() {}
