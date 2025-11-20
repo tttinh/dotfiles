@@ -4,7 +4,8 @@
 # Some convenient aliases
 alias n="nvim"
 alias lg="lazygit"
-alias ndotfiles="nvim ~/.dotfiles/"
+alias ndot="nvim ~/.dotfiles/"
+alias cdot="cd ~/.dotfiles/"
 
 # This line binds the Crlt+Space to accept the current autosuggestion.
 bindkey '^ ' autosuggest-accept
