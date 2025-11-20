@@ -8,7 +8,6 @@ DOTFILES_DIR="$HOME/.dotfiles"
 
 # List the package directories (MUST match the folder names in your repo: git, zsh, nvim)
 PACKAGES=(
-  "git"
   "zsh"
   "nvim"
   # Add any other packages here (e.g., "tmux", "alacritty")
