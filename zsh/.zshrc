@@ -91,6 +91,7 @@ plugins=(
   sudo
   docker
   docker-compose
+  terraform
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
