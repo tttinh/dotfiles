@@ -10,6 +10,7 @@ DOTFILES_DIR="$HOME/.dotfiles"
 PACKAGES=(
   "zsh"
   "nvim"
+  "powerlevel10k"
   # Add any other packages here (e.g., "tmux", "alacritty")
 )
 # --- End Configuration ---
@@ -71,6 +72,14 @@ if [ -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
 else
   echo "Cloning zsh-syntax-highlighting..."
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+fi
+
+# C. Install powerlevel10k
+if [ -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
+  echo "powerlevel10k already installed. Skipping clone."
+else
+  echo "Cloning powerlevel10k..."
+  git clone --depth=1 https://github.com/romkatv/powerlevel11k.git "$ZSH_CUSTOM/themes/powerlevel10k"
 fi
 
 ## 5. Symlink Configurations with GNU Stow
