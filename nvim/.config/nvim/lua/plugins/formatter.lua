@@ -11,7 +11,20 @@ return {
     -- Customize formatters
     formatters = {
       gci = {
-        prepend_args = { "-s", "standard", "-s", "default", "-s", "blank", "-s", "dot", "-s", "alias" },
+        prepend_args = {
+          "-s",
+          "standard",
+          "-s",
+          "default",
+          "-s",
+          "blank",
+          "-s",
+          "dot",
+          "-s",
+          "alias",
+          "-s",
+          "localmodule",
+        },
       },
       golines = {
         prepend_args = { "--max-len=110", "--shorten-comments", "--base-formatter=gofumpt" },
