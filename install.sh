@@ -82,9 +82,22 @@ setup_zsh_plugins() {
     "https://github.com/romkatv/powerlevel10k.git" "powerlevel10k" "--depth=1"
 }
 
+backup_conflicts() {
+  package="$1"
+  find "$DOTFILES_DIR/$package" -type f | while read -r src; do
+    rel="${src#"$DOTFILES_DIR/$package/"}"
+    target="$TARGET_DIR/$rel"
+    if [ -f "$target" ] && [ ! -L "$target" ]; then
+      fmt_info "Backing up $target -> ${target}.pre-dotfiles"
+      mv "$target" "${target}.pre-dotfiles"
+    fi
+  done
+}
+
 setup_stow() {
   fmt_info "Creating symlinks for all configurations..."
   for package in $PACKAGES; do
+    backup_conflicts "$package"
     fmt_info "-> Stowing package: $package"
     if ! stow --verbose=1 --dotfiles --target="$TARGET_DIR" "$package"; then
       fmt_error "Stow failed for $package. Check for conflicting files in $HOME."
@@ -94,9 +107,7 @@ setup_stow() {
 
 setup_neovim() {
   if command_exists nvim && [ -d "$HOME/.config/nvim" ]; then
-    fmt_info "Running LazyVim setup..."
-    nvim --headless -c 'Lazy sync' -c 'qa'
-    fmt_success "LazyVim setup initiated. Run 'nvim' to confirm."
+    fmt_info "Neovim config linked. Open 'nvim' to complete plugin installation."
   else
     fmt_info "LazyVim setup skipped. Ensure Neovim is installed to finalize the setup."
   fi
