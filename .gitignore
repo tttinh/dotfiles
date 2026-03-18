@@ -44,8 +44,5 @@ Thumbs.db
 node_modules/
 .npm/
 
-# Tmux temporary files (often in /tmp, but sometimes elsewhere)
-*tmux*
-
 # Any files end with .local
 *.local

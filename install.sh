@@ -5,7 +5,7 @@ DOTFILES_REPO="https://github.com/tttinh/dotfiles.git"
 TARGET_DIR="$HOME"
 DOTFILES_DIR="$HOME/.dotfiles"
 
-PACKAGES="zsh nvim powerlevel10k"
+PACKAGES="zsh nvim powerlevel10k tmux"
 
 fmt_info()    { printf '\033[1;34m%s\033[0m\n' "$1"; }
 fmt_success() { printf '\033[1;32m%s\033[0m\n' "$1"; }
@@ -25,8 +25,8 @@ fetch() {
 }
 
 setup_prerequisites() {
-  fmt_info "Checking for prerequisites (git, stow, zsh, nvim)..."
-  for cmd in git stow zsh nvim; do
+  fmt_info "Checking for prerequisites (git, stow, zsh, nvim, tmux)..."
+  for cmd in git stow zsh nvim tmux; do
     if ! command_exists "$cmd"; then
       fmt_error "Error: $cmd is required but not installed. Please install it."
       exit 1
@@ -105,6 +105,12 @@ setup_stow() {
   done
 }
 
+setup_tmux() {
+  clone_if_missing "$HOME/.tmux/plugins/tpm" \
+    "https://github.com/tmux-plugins/tpm" "TPM (Tmux Plugin Manager)" "--depth=1"
+  fmt_info "Run 'prefix + I' inside tmux to install plugins."
+}
+
 setup_neovim() {
   if command_exists nvim && [ -d "$HOME/.config/nvim" ]; then
     fmt_info "Neovim config linked. Open 'nvim' to complete plugin installation."
@@ -123,6 +129,7 @@ main() {
   setup_omz
   setup_zsh_plugins
   setup_stow
+  setup_tmux
   setup_neovim
 
   echo ""
