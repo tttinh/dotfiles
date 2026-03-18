@@ -48,6 +48,19 @@ cd ~/.dotfiles
 ./install.sh
 ```
 
+## Uninstall
+
+```bash
+cd ~/.dotfiles
+./uninstall.sh
+```
+
+This will:
+
+1. Remove all symlinks created by stow
+2. Restore any `.pre-dotfiles` backup files
+3. Optionally remove Oh My Zsh, TPM/tmux plugins, Neovim data, and the dotfiles repo (with confirmation prompts for each)
+
 ## Fresh Machine Setup
 
 After running the install script on a new machine, a few extra steps are needed:
