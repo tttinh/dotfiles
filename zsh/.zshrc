@@ -10,7 +10,8 @@ fi
 
 # Some convenient aliases
 alias n="nvim"
-alias lg="lazygit"
+alias lzg="lazygit"
+alias lzd="lazydocker"
 alias ndot="nvim ~/.dotfiles/"
 alias cdot="cd ~/.dotfiles/"
 
