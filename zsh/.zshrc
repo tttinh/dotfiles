@@ -10,13 +10,15 @@ fi
 
 # Some convenient aliases
 alias n="nvim"
-alias lzg="lazygit"
-alias lzd="lazydocker"
+alias lg="lazygit"
+alias lk="lazydocker"
 alias ndot="nvim ~/.dotfiles/"
 alias cdot="cd ~/.dotfiles/"
+alias devu="devpod up . --ide none"
+alias devr="devpod up . --recreate"
 
-# This line binds the Crlt+Space to accept the current autosuggestion.
-bindkey '^ ' autosuggest-accept
+# Bind Ctrl + f to accept autosuggest
+bindkey '^F' autosuggest-accept
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
