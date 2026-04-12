@@ -2,6 +2,10 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
+      -- Proto lsp.
+      buf_ls = {},
+
+      -- Go lsp.
       gopls = {
         settings = {
           gopls = {
