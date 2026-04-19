@@ -9,13 +9,14 @@ fi
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Some convenient aliases
+alias nz="nvim ~/.zshrc.local"
 alias n="nvim"
 alias lg="lazygit"
 alias lk="lazydocker"
 alias ndot="nvim ~/.dotfiles/"
 alias cdot="cd ~/.dotfiles/"
 alias devu="devpod up . --ide none"
-alias devr="devpod up . --recreate"
+alias devr="devpod up . --recreate --ide none"
 
 # Bind Ctrl + f to accept autosuggest
 bindkey '^F' autosuggest-accept

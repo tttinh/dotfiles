@@ -7,6 +7,7 @@ return {
       -- python = { "isort", "black" },
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
       -- go = { "goimports", "gofumpt", "gci", "golines" },
+      templ = { "templ" },
       go = { "goimports", "gofumpt", "golines" },
     },
     -- Customize formatters
