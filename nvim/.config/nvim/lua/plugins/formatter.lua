@@ -29,7 +29,20 @@ return {
       --   },
       -- },
       golines = {
-        prepend_args = { "--max-len=110", "--shorten-comments", "--base-formatter=gofumpt" },
+        prepend_args = { "--max-len=120", "--shorten-comments", "--base-formatter=gofumpt" },
+      },
+      -- Customizing prettier to wrap attributes
+      prettier = {
+        args = {
+          "--stdin-filepath",
+          "$FILENAME",
+          "--parser",
+          "html",
+          "--single-attribute-per-line",
+          "true",
+          "--print-width",
+          "80",
+        },
       },
     },
   },
