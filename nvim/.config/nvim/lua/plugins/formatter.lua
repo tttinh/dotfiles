@@ -6,7 +6,6 @@ return {
       -- lua = { "stylua" },
       -- python = { "isort", "black" },
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      -- go = { "goimports", "gofumpt", "gci", "golines" },
       templ = { "templ" },
       go = { "goimports", "gofumpt", "golines" },
     },
@@ -30,19 +29,6 @@ return {
       -- },
       golines = {
         prepend_args = { "--max-len=120", "--shorten-comments", "--base-formatter=gofumpt" },
-      },
-      -- Customizing prettier to wrap attributes
-      prettier = {
-        args = {
-          "--stdin-filepath",
-          "$FILENAME",
-          "--parser",
-          "html",
-          "--single-attribute-per-line",
-          "true",
-          "--print-width",
-          "80",
-        },
       },
     },
   },
