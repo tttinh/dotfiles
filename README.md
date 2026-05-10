@@ -4,12 +4,12 @@ Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
 ## What's Included
 
-| Package        | Description                                      |
-| -------------- | ------------------------------------------------ |
-| `zsh`          | `.zshrc` and `.zprofile`                         |
-| `nvim`         | [LazyVim](https://www.lazyvim.org/) config       |
-| `powerlevel10k`| [Powerlevel10k](https://github.com/romkatv/powerlevel10k) theme config |
-| `tmux`         | [tmux](https://github.com/tmux/tmux) config with [TPM](https://github.com/tmux-plugins/tpm) |
+| Package         | Description                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| `zsh`           | `.zshrc` and `.zprofile`                                                                    |
+| `nvim`          | [LazyVim](https://www.lazyvim.org/) config                                                  |
+| `powerlevel10k` | [Powerlevel10k](https://github.com/romkatv/powerlevel10k) theme config                      |
+| `tmux`          | [tmux](https://github.com/tmux/tmux) config with [TPM](https://github.com/tmux-plugins/tpm) |
 
 The install script also sets up:
 
@@ -59,7 +59,8 @@ This will:
 
 1. Remove all symlinks created by stow
 2. Restore any `.pre-dotfiles` backup files
-3. Optionally remove Oh My Zsh, TPM/tmux plugins, Neovim data, and the dotfiles repo (with confirmation prompts for each)
+3. Optionally remove Oh My Zsh, TPM/tmux plugins, Neovim data, and the dotfiles
+   repo (with confirmation prompts for each)
 
 ## Fresh Machine Setup
 
@@ -71,9 +72,12 @@ After running the install script on a new machine, a few extra steps are needed:
 
 ## Adding a New Package
 
-Each package is a directory in the repo that mirrors the home directory structure. [GNU Stow](https://www.gnu.org/software/stow/) creates symlinks from `~` into the dotfiles repo.
+Each package is a directory in the repo that mirrors the home directory
+structure. [GNU Stow](https://www.gnu.org/software/stow/) creates symlinks from
+`~` into the dotfiles repo.
 
-1. **Create the package directory** matching where the config lives relative to `~`:
+1. **Create the package directory** matching where the config lives relative to
+   `~`:
 
    ```bash
    # For a config file at ~/.somerc
@@ -85,15 +89,19 @@ Each package is a directory in the repo that mirrors the home directory structur
    cp ~/.config/tool/config.toml ~/.dotfiles/tool/.config/tool/config.toml
    ```
 
-2. **Register the package** in `install.sh` by adding its name to the `PACKAGES` variable:
+2. **Register the package** in `install.sh` by adding its name to the `PACKAGES`
+   variable:
 
    ```bash
    PACKAGES="zsh nvim powerlevel10k tmux some"
    ```
 
-3. **If the tool has a plugin manager** (like TPM for tmux), add a setup function in `install.sh` to clone it using the existing `clone_if_missing` helper, and call it from `main()`.
+3. **If the tool has a plugin manager** (like TPM for tmux), add a setup
+   function in `install.sh` to clone it using the existing `clone_if_missing`
+   helper, and call it from `main()`.
 
-4. **Stow it** to create the symlink (remove the original file first if it exists):
+4. **Stow it** to create the symlink (remove the original file first if it
+   exists):
 
    ```bash
    cd ~/.dotfiles

@@ -5,7 +5,7 @@ DOTFILES_REPO="https://github.com/tttinh/dotfiles.git"
 TARGET_DIR="$HOME"
 DOTFILES_DIR="$HOME/.dotfiles"
 
-PACKAGES="zsh nvim powerlevel10k tmux wezterm"
+PACKAGES="zsh nvim powerlevel10k tmux wezterm agents"
 
 fmt_info() { printf '\033[1;34m%s\033[0m\n' "$1"; }
 fmt_success() { printf '\033[1;32m%s\033[0m\n' "$1"; }
@@ -82,12 +82,26 @@ setup_zsh_plugins() {
     "https://github.com/romkatv/powerlevel10k.git" "powerlevel10k" "--depth=1"
 }
 
+is_stow_managed() {
+  local path="$1"
+  local dir="$path"
+  while [ "$dir" != "$TARGET_DIR" ] && [ "$dir" != "/" ]; do
+    dir="$(dirname "$dir")"
+    if [ -L "$dir" ]; then
+      case "$(readlink -f "$dir")" in
+        "$DOTFILES_DIR"/*) return 0 ;;
+      esac
+    fi
+  done
+  return 1
+}
+
 backup_conflicts() {
   package="$1"
   find "$DOTFILES_DIR/$package" -type f | while read -r src; do
     rel="${src#"$DOTFILES_DIR/$package/"}"
     target="$TARGET_DIR/$rel"
-    if [ -f "$target" ] && [ ! -L "$target" ]; then
+    if [ -f "$target" ] && [ ! -L "$target" ] && ! is_stow_managed "$target"; then
       fmt_info "Backing up $target -> ${target}.pre-dotfiles"
       mv "$target" "${target}.pre-dotfiles"
     fi

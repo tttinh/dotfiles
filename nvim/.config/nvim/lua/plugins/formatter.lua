@@ -8,6 +8,8 @@ return {
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
       templ = { "templ" },
       go = { "goimports", "gofumpt", "golines" },
+      ["markdown"] = { "prettier", "markdownlint-cli2", "markdown-toc" },
+      ["markdown.mdx"] = { "prettier", "markdownlint-cli2", "markdown-toc" },
     },
     -- Customize formatters
     formatters = {

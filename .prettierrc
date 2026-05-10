@@ -1,0 +1,20 @@
+{
+  "bracketSpacing": true,
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "parser": "markdown",
+        "proseWrap": "always"
+      }
+    },
+    {
+      "files": "*.lua",
+      "options": {
+        "parser": "lua",
+        "luaTableSpacing": true,
+        "singleQuote": true
+      }
+    }
+  ]
+}
