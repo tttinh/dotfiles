@@ -64,10 +64,19 @@ return {
         },
         -- YAML lsp.
         yamlls = {
+          -- Disable formatting for yamlls so it doesn't conflict with prettier
+          on_attach = function(client, bufnr)
+            client.server_capabilities.documentFormattingProvider = false
+          end,
           settings = {
             yaml = {
-              format = {
-                printWidth = 120,
+              schemaStore = {
+                enable = true,
+                url = "https://www.schemastore.org/api/json/catalog.json",
+              },
+              schemas = {
+                -- Example: Map kubernetes schemas
+                -- ["kubernetes"] = "*.yaml",
               },
             },
           },
