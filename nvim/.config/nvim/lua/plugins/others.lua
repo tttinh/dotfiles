@@ -5,6 +5,24 @@ return {
   -- dbml files support.
   {
     "jidn/vim-dbml",
-    ft = "dbml", -- Lazy load on dbml filetype
+    ft = "dbml",
+  },
+
+  -- for oklch color highlight.
+  {
+    "eero-lehtinen/oklch-color-picker.nvim",
+    event = "VeryLazy",
+    version = "*",
+    keys = {
+      {
+        "<leader>v",
+        function()
+          require("oklch-color-picker").pick_under_cursor()
+        end,
+        desc = "Color pick under cursor",
+      },
+    },
+    ---@type oklch.Opts
+    opts = {},
   },
 }
