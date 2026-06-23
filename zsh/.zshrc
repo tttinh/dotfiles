@@ -22,6 +22,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+
 # --- User Configuration & Tools ---
 
 # Bind Ctrl + f to accept autosuggest
@@ -47,24 +48,27 @@ alias devu="devpod up . --ide none"
 alias devr="devpod up . --recreate --ide none"
 alias devd="devpod delete ."
 
-# Helpers for tmux
+
+# --- Tmux utilities ---
+
 # Exit current session.
 alias tks="tmux kill-session"
+
 # Split terminal: 50% wide left pane, two stacked right panes
 t3l() {
     if [ -n "$TMUX" ]; then
-        tmux split-window -h -p 50 \; split-window -v \; select-pane -t 0
+        tmux split-window -h -l 50% \; split-window -v \; select-pane -t 1
     else
-        tmux new-session \; split-window -h -p 50 \; split-window -v \; select-pane -t 0
+        tmux new-session \; split-window -h -l 50% \; split-window -v \; select-pane -t 1
     fi
 }
 
 # Split terminal: 2 stacked left panes, 50% wide right pane
 t3r() {
     if [ -n "$TMUX" ]; then
-        tmux split-window -h -p 50 -d \; split-window -v \; select-pane -t 1
+        tmux split-window -h -l 50% -d \; split-window -v \; select-pane -t 3
     else
-        tmux new-session \; split-window -h -p 50 -d \; split-window -v \; select-pane -t 1
+        tmux new-session \; split-window -h -l 50% -d \; split-window -v \; select-pane -t 3
     fi
 }
 
