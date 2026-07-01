@@ -6,6 +6,7 @@ return {
       -- lua = { "stylua" },
       -- python = { "isort", "black" },
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      sql = { "pg_format" },
       yaml = { "prettier" },
       templ = { "templ" },
       go = { "goimports", "gofumpt", "golines" },
