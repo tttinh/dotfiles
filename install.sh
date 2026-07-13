@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
 
-DOTFILES_REPO="https://github.com/tttinh/dotfiles.git"
 TARGET_DIR="$HOME"
 DOTFILES_DIR="$HOME/.dotfiles"
+DOTFILES_REPO="https://github.com/tttinh/dotfiles.git"
 
 PACKAGES="zsh nvim powerlevel10k tmux wezterm"
 
