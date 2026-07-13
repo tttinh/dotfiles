@@ -4,19 +4,19 @@ set -e
 TARGET_DIR="$HOME"
 DOTFILES_DIR="$HOME/.dotfiles"
 
-PACKAGES="zsh nvim powerlevel10k tmux"
+PACKAGES="zsh nvim powerlevel10k tmux wezterm"
 
-fmt_info()    { printf '\033[1;34m%s\033[0m\n' "$1"; }
+fmt_info() { printf '\033[1;34m%s\033[0m\n' "$1"; }
 fmt_success() { printf '\033[1;32m%s\033[0m\n' "$1"; }
-fmt_error()   { printf '\033[1;31m%s\033[0m\n' "$1"; }
-fmt_warn()    { printf '\033[1;33m%s\033[0m\n' "$1"; }
+fmt_error() { printf '\033[1;31m%s\033[0m\n' "$1"; }
+fmt_warn() { printf '\033[1;33m%s\033[0m\n' "$1"; }
 
 confirm() {
   printf '\033[1;33m%s [y/N] \033[0m' "$1"
   read -r answer
   case "$answer" in
-    [yY]*) return 0 ;;
-    *)     return 1 ;;
+  [yY]*) return 0 ;;
+  *) return 1 ;;
   esac
 }
 
