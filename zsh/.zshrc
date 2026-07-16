@@ -28,9 +28,6 @@ source $ZSH/oh-my-zsh.sh
 # Bind Ctrl + f to accept autosuggest
 bindkey '^F' autosuggest-accept
 
-# Initialize Zoxide
-eval "$(zoxide init zsh --cmd cd)"
-
 # Initialize direnv
 eval "$(direnv hook zsh)"
 
@@ -79,3 +76,6 @@ t3r() {
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
+
+# Initialize Zoxide (must be last so it wraps any cd/prompt hooks added above)
+eval "$(zoxide init zsh --cmd cd)"

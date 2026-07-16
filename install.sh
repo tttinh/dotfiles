@@ -5,7 +5,7 @@ TARGET_DIR="$HOME"
 DOTFILES_DIR="$HOME/.dotfiles"
 DOTFILES_REPO="https://github.com/tttinh/dotfiles.git"
 
-PACKAGES="zsh nvim powerlevel10k tmux wezterm"
+PACKAGES="zsh nvim powerlevel10k tmux wezterm herdr"
 
 fmt_info() { printf '\033[1;34m%s\033[0m\n' "$1"; }
 fmt_success() { printf '\033[1;32m%s\033[0m\n' "$1"; }
