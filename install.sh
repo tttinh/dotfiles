@@ -113,7 +113,10 @@ setup_stow() {
   for package in $PACKAGES; do
     backup_conflicts "$package"
     fmt_info "-> Stowing package: $package"
-    if ! stow --verbose=1 --dotfiles --target="$TARGET_DIR" "$package"; then
+    # --no-folding symlinks individual files instead of folding a whole
+    # directory into a single symlink. This keeps apps (e.g. herdr) from
+    # writing runtime files (logs, sockets, session state) back into this repo.
+    if ! stow --no-folding --verbose=1 --dotfiles --target="$TARGET_DIR" "$package"; then
       fmt_error "Stow failed for $package. Check for conflicting files in $HOME."
     fi
   done

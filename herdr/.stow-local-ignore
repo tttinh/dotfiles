@@ -1,0 +1,6 @@
+# herdr writes these at runtime into ~/.config/herdr.
+# Never stow them so they stay real files in the target and out of this repo.
+herdr-.*\.log
+.*\.sock
+session\.json
+release-notes\.json
